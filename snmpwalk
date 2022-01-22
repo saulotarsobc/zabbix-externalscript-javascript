@@ -14,8 +14,10 @@ const options = {
     enableLogs: true
 }
 
+let c = 1;
 fh.getAuthorizedOnus(options).then(onuList => {
     onuList.forEach(element => {
-        console.log(`${element._onuIndex} => ${element.macAddress}`)
+        console.log(`${c} => ${element._onuIndex} => ${element.macAddress}`)
+        c++;
     });
 })
