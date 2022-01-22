@@ -14,12 +14,6 @@ const options = {
     enableLogs: true
 }
 
-fh.addAllOnus(options, [
-    { wanMode: 'internet', wanConnType: 'router', wanVlan: 2001, ipMode: 'pppoe', translationValue: 2000, svlan: 2000 },
-    { wanMode: 'tr069', wanConnType: 'router', wanVlan: 2002, ipMode: 'dhcp', translationValue: 2000, svlan: 3000 }
-], [
-    { lanPort: 1, vlans: [{ vlanMode: 'transparent', cvlanId: 2001 }, { vlanMode: 'tag', cvlanId: 3011, cos: 3 }] },
-    { lanPort: 2, enablePort: false }
-]).then(authOnuList => {
+fh.addAllOnus().then(authOnuList => {
     console.log(authOnuList)
 })
