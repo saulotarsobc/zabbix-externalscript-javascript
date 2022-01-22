@@ -14,6 +14,6 @@ const options = {
     enableLogs: true
 }
 
-fh.getPonPortList(options).then(ponPorts => {
-    console.log(ponPorts)
+fh.getPonPort(options, 11, 1).then(ponPort => {
+    console.log(ponPort)
 })
