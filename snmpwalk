@@ -1,27 +1,19 @@
 #! /bin/node
 
 let olt_ip = process.argv[2];
-let comunity = process.argv[3];
+/* let comunity = process.argv[3]; */
 
-console.log(olt_ip, comunity);
+const fh = require('snmp-fiberhome');
 
-var snmp = require("net-snmp");
+const options = {
+    ip: olt_ip, // OLT IP
+    community: 'adsl',
+    port: 161,
+    trapPort: 162,
+    enableWarnings: true,
+    enableLogs: true
+}
 
-var session = snmp.createSession(olt_ip, comunity);
-
-var oids = ["1.3.6.1.2.1.1.6.0"];
-
-session.get(oids, function(error, varbinds) {
-    if (error) {
-        console.error(error);
-    } else {
-        for (var i = 0; i < varbinds.length; i++) {
-            if (snmp.isVarbindError(varbinds[i])) {
-                console.error(snmp.varbindError(varbinds[i]));
-            } else {
-                console.log(varbinds[i].oid + " = " + varbinds[i].value);
-            }
-        }
-    }
-    session.close();
-});
+fh.getOltInformation(options).then(oltInfo => {
+    console.log(oltInfo)
+})
