@@ -1,19 +1,19 @@
 #! /bin/node
 
 let olt_ip = process.argv[2];
-/* let comunity = process.argv[3]; */
+let comunity = process.argv[3];
 
 const fh = require('snmp-fiberhome');
 
 const options = {
-    ip: olt_ip, // OLT IP
-    community: 'adsl',
+    ip: olt_ip,
+    community: comunity,
     port: 161,
     trapPort: 162,
     enableWarnings: true,
     enableLogs: true
 }
 
-fh.getOltInformation(options).then(oltInfo => {
-    console.log(oltInfo)
+fh.getSubrackInformation(options).then(info => {
+    console.log(info)
 })
