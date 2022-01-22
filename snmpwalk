@@ -14,6 +14,6 @@ const options = {
     enableLogs: true
 }
 
-fh.getSubrackInformation(options).then(info => {
-    console.log(info)
+fh.getPonPortList(options).then(ponPorts => {
+    console.log(ponPorts)
 })
