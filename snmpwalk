@@ -1,5 +1,5 @@
 #! /bin/node
 
-let params = process.argv;
+var snmp = require("net-snmp");
 
-console.log(params);
+console.log({ snmp });

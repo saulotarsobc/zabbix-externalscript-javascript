@@ -16,5 +16,8 @@
     "bugs": {
         "url": "https://github.com/saulotarsobc/zabbix-externalscript-javascript/issues"
     },
-    "homepage": "https://github.com/saulotarsobc/zabbix-externalscript-javascript#readme"
+    "homepage": "https://github.com/saulotarsobc/zabbix-externalscript-javascript#readme",
+    "dependencies": {
+        "net-snmp": "^3.5.8"
+    }
 }
