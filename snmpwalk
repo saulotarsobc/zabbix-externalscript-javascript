@@ -15,5 +15,7 @@ const options = {
 }
 
 fh.getAuthorizedOnus(options).then(onuList => {
-    console.log(onuList)
+    onuList.forEach(element => {
+        console.log(`${element._onuIndex} => ${element.macAddress}`)
+    });
 })
